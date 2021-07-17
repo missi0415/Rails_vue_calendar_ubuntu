@@ -1,10 +1,10 @@
 <template>
-  <div v-if="visibility">
-    <p>visibility: true</p>
-    <p>{{ message }}</p>
-  </div>
-  <div v-else>
-    <p>visivility: false</p>
+  <div>
+    <ul>
+      <li v-for="item in items" :key="item.id">
+        {{ item.text }}
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -12,8 +12,11 @@
   export default {
     name: "HelloWorld",
     data: () => ({
-      message: 'Hello World!',
-      visibility: true,
+      items: [
+        { id: 1, text: 'アイテム1' },
+        { id: 2, text: 'アイテム2' },
+        { id: 3, text: 'アイテム3' }
+      ],
     }),
   };
   </script>
