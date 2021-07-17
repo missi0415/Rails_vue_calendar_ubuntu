@@ -1,15 +1,16 @@
 <template>
-  <div id="app">
-    <Calendar />
-    <!-- messageの値を渡す -->
-  </div>
+  <v-app>
+    <v-main>
+      <Calendar />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import Calendar from "./components/Calendar.vue";
+import Calendar from './components/Calendar'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     Calendar
   }

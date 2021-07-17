@@ -1,31 +1,22 @@
 <template>
   <div>
-    <h1>Calendar</h1>
-    <p>events:</p>
-    <p>{{ events }}</p>
-    <button type="submit" @click="fetchEvents()">fetchEvents関数を発動させるボタンです</button>
+    <v-sheet height="100vh">
+      <v-calendar></v-calendar>
+    </v-sheet>
   </div>
 </template>
 
 <script>
-import axios from "axios"; // axiosのインポート
+import { mapGetters, mapActions } from 'vuex';
+
+
 export default {
   name: 'Calendar',
-  data: () => ({
-    events: []
-  }),
-  methods:{
-    fetchEvents() {
-      //GETリクエストを送信し、取得データをevents変数に代入する
-      axios
-        .get('http://localhost:3000/events')
-        .then(response =>{
-          this.events = response.data;
-        })
-        .catch(error => {
-          console.error(error);
-        })
-    }
+  computed: {
+    ...mapGetters('events', ['events']),
+  },
+  methods: {
+    ...mapActions('events', ['fetchEvents']),
   }
 };
 </script>
