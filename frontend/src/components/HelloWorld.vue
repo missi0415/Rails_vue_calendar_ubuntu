@@ -1,12 +1,17 @@
 <template>
   <div>
-    <p>{{ message }}</p>
+    <h1>Calendar</h1>
+    <p>events:</p>
+    <p>{{ events }}</p>
+    <button type="submit">fetchEvents</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "HelloWorld",
-  props: ["message"] // 親コンポーネントからmessageを受け取る
+  name: 'Calendar',
+  data: () => ({
+    events: []
+  }),
 };
 </script>
